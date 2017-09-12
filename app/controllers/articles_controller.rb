@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-    before_action :find_article, only: [:show]
-    before_action :authenticate_user!, except: [:index, :show]
+    before_action :find_article, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, except: [:index, :show, :destroy]
     
     def index
         if params[:category].blank?
@@ -25,6 +25,22 @@ class ArticlesController < ApplicationController
     
     def show
     end    
+    
+    def edit
+    end
+    
+    def update
+        if @article.update(article_params)
+            redirect_to @article
+        else
+            render 'new'
+        end    
+    end
+    
+    def destroy
+        @article.destroy
+        redirect_to root_path
+    end
     
     private
     
