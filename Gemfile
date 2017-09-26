@@ -35,11 +35,19 @@ gem 'simple_form', '~> 3.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
+
+group :test do
+  gem 'faker'
+  gem 'capybara', '~> 2.4.0'
+  gem 'capybara-webkit', '~> 1.14.0'
+  gem 'database_cleaner'
+end  
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
