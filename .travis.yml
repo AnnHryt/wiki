@@ -10,7 +10,7 @@ before_install:
 - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 
 script:
-  - xvfb-run -a bundle exec spec
+  - xvfb-run -a bundle exec rspec
     
 before_script:
   - bundle exec rake db:create
